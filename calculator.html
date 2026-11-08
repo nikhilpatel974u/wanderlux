@@ -1,0 +1,299 @@
+<!doctype html>
+<html lang="en-AU">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#f7f6f1" />
+    <meta
+      name="description"
+      content="Use the WanderLux trip cost calculator to estimate travel costs by destination, group size, trip length and travel style."
+    />
+    <title>Trip Cost Calculator | WanderLux</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to main content</a>
+
+    <header class="site-header" id="top">
+      <div class="container header-inner">
+        <a
+          class="brand"
+          href="index.html"
+          aria-label="WanderLux Travel Agency home"
+        >
+          <span class="brand-symbol" aria-hidden="true"
+            ><svg viewBox="0 0 36 36" fill="none">
+              <circle
+                cx="18"
+                cy="18"
+                r="14"
+                stroke="currentColor"
+                stroke-width="1.5"
+              />
+              <path
+                d="m22.8 11.8-3.2 8.1-8.1 3.2 3.2-8.1 8.1-3.2Z"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linejoin="round"
+              />
+              <circle cx="18" cy="18" r="1.5" fill="currentColor" /></svg
+          ></span>
+          <span class="brand-name">Wander<span>Lux</span></span>
+        </a>
+        <button
+          class="menu-toggle"
+          type="button"
+          aria-expanded="false"
+          aria-controls="primary-nav"
+          aria-label="Open navigation"
+        >
+          <span class="menu-line"></span><span class="menu-line"></span
+          ><span class="menu-line"></span>
+        </button>
+        <nav class="primary-nav" id="primary-nav" aria-label="Main navigation">
+          <a href="index.html">Home</a>
+          <a href="destinations.html">Destinations</a>
+          <a href="calculator.html" aria-current="page">Trip calculator</a>
+          <a href="appointment.html">Appointments</a>
+          <a href="about.html">About</a>
+          <a href="contact.html">Contact</a>
+          <a class="nav-cta" href="appointment.html"
+            >Plan a trip <span aria-hidden="true">↗</span></a
+          >
+        </nav>
+      </div>
+    </header>
+
+    <main id="main">
+      <section class="page-hero">
+        <div class="container page-hero-content">
+          <p class="eyebrow">A helpful place to begin</p>
+          <h1>Dream a little.<br /><em>Plan a little.</em></h1>
+          <p>
+            Choose a destination, group size and travel style to get a quick
+            indicative estimate in Australian dollars.
+          </p>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container calculator-layout">
+          <div class="calculator-card reveal">
+            <p class="eyebrow">Your trip details</p>
+            <h2 class="form-title">Build a quick estimate</h2>
+            <p class="form-intro">
+              Adjust the options below to see how your trip might add up.
+            </p>
+
+            <form id="trip-calculator" class="form-stack">
+              <div class="field">
+                <label for="destination">Destination</label>
+                <select id="destination" name="destination" required>
+                  <option value="" selected disabled>
+                    Choose a destination
+                  </option>
+                  <option value="bali">Bali, Indonesia</option>
+                  <option value="kyoto">Kyoto, Japan</option>
+                  <option value="amalfi">Amalfi Coast, Italy</option>
+                  <option value="queenstown">Queenstown, New Zealand</option>
+                </select>
+              </div>
+
+              <div class="form-grid">
+                <div class="field">
+                  <label for="travellers">Number of travellers</label>
+                  <input
+                    id="travellers"
+                    name="travellers"
+                    type="number"
+                    min="1"
+                    max="12"
+                    value="2"
+                    required
+                  />
+                </div>
+                <div class="field">
+                  <label for="days">Number of days</label>
+                  <input
+                    id="days"
+                    name="days"
+                    type="number"
+                    min="1"
+                    max="30"
+                    value="7"
+                    required
+                  />
+                </div>
+              </div>
+
+              <div class="field">
+                <label for="travel-style">Travel style</label>
+                <select id="travel-style" name="travel_style" required>
+                  <option value="budget">Budget — practical and relaxed</option>
+                  <option value="standard" selected>
+                    Standard — considered comfort
+                  </option>
+                  <option value="luxury">Luxury — elevated experiences</option>
+                </select>
+              </div>
+
+              <button class="button button-primary button-wide" type="submit">
+                Calculate my estimate <span aria-hidden="true">↗</span>
+              </button>
+              <p class="form-note">
+                This quick estimate is a guide, not a booking quote. Actual
+                prices vary with dates, availability and your chosen itinerary.
+              </p>
+            </form>
+          </div>
+
+          <aside class="estimate-card reveal" aria-label="Estimated trip cost">
+            <p class="eyebrow eyebrow-light">Your estimate</p>
+
+            <div class="empty-result" id="estimate-empty">
+              <div class="estimate-mark" aria-hidden="true">✳</div>
+              <h2>Your trip, taking shape.</h2>
+              <p>
+                Complete the trip details and your estimate will appear here.
+              </p>
+            </div>
+
+            <div
+              class="result-panel"
+              id="estimate-result"
+              hidden
+              aria-live="polite"
+              aria-atomic="true"
+            >
+              <p class="result-label">Estimated total</p>
+              <p class="result-total" id="estimate-total">$0</p>
+              <p class="result-summary" id="estimate-summary"></p>
+
+              <dl class="estimate-breakdown">
+                <div>
+                  <dt>Daily costs & activities</dt>
+                  <dd id="estimate-ground"></dd>
+                </div>
+                <div>
+                  <dt>Accommodation</dt>
+                  <dd id="estimate-stay"></dd>
+                </div>
+                <div>
+                  <dt>Travel</dt>
+                  <dd id="estimate-travel"></dd>
+                </div>
+              </dl>
+
+              <p class="estimate-disclaimer">
+                Indicative pricing only. Rates are illustrative and may change;
+                a consultant can prepare a tailored quote.
+              </p>
+              <a class="button button-light button-wide" href="appointment.html"
+                >Talk to a travel planner <span aria-hidden="true">↗</span></a
+              >
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <section class="section section-soft">
+        <div class="container process-grid reveal">
+          <div>
+            <p class="eyebrow">How we estimate</p>
+            <h2 class="section-title">A clear starting point.</h2>
+          </div>
+          <div class="process-steps">
+            <article>
+              <span>01</span>
+              <div>
+                <h3>Choose your destination</h3>
+                <p>
+                  Each destination has a sample daily rate and a round-trip
+                  travel allowance.
+                </p>
+              </div>
+            </article>
+            <article>
+              <span>02</span>
+              <div>
+                <h3>Set your trip details</h3>
+                <p>
+                  Accommodation is estimated by room and number of nights; up to
+                  two travellers share a room.
+                </p>
+              </div>
+            </article>
+            <article>
+              <span>03</span>
+              <div>
+                <h3>Select a travel style</h3>
+                <p>
+                  Your style applies a sample multiplier to the estimated trip
+                  costs.
+                </p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-main">
+        <div class="footer-brand">
+          <a
+            class="brand brand-footer"
+            href="index.html"
+            aria-label="WanderLux home"
+            ><span class="brand-symbol" aria-hidden="true"
+              ><svg viewBox="0 0 36 36" fill="none">
+                <circle
+                  cx="18"
+                  cy="18"
+                  r="14"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                />
+                <path
+                  d="m22.8 11.8-3.2 8.1-8.1 3.2 3.2-8.1 8.1-3.2Z"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linejoin="round"
+                />
+                <circle
+                  cx="18"
+                  cy="18"
+                  r="1.5"
+                  fill="currentColor"
+                /></svg></span
+            ><span class="brand-name">Wander<span>Lux</span></span></a
+          >
+          <p>Thoughtful travel, made around you.</p>
+        </div>
+        <div class="footer-links">
+          <h2>Explore</h2>
+          <a href="destinations.html">Destinations & services</a
+          ><a href="calculator.html">Trip calculator</a
+          ><a href="about.html">About WanderLux</a>
+        </div>
+        <div class="footer-links">
+          <h2>Let’s talk</h2>
+          <a href="appointment.html">Request an appointment</a
+          ><a href="contact.html">Contact us</a
+          ><a href="mailto:nikhilpatelu6@gmail.com">nikhilpatelu6@gmail.com</a>
+        </div>
+      </div>
+      <div class="container footer-bottom">
+        <p>© <span data-year>2025</span> WanderLux Travel Agency</p>
+        <a href="#top">Back to top <span aria-hidden="true">↑</span></a>
+      </div>
+    </footer>
+  </body>
+</html>

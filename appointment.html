@@ -1,0 +1,281 @@
+<!doctype html>
+<html lang="en-AU">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#f7f6f1" />
+    <meta
+      name="description"
+      content="Request a WanderLux travel planning appointment and tell us about the trip you have in mind."
+    />
+    <title>Request an Appointment | WanderLux</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to main content</a>
+
+    <header class="site-header" id="top">
+      <div class="container header-inner">
+        <a
+          class="brand"
+          href="index.html"
+          aria-label="WanderLux Travel Agency home"
+        >
+          <span class="brand-symbol" aria-hidden="true"
+            ><svg viewBox="0 0 36 36" fill="none">
+              <circle
+                cx="18"
+                cy="18"
+                r="14"
+                stroke="currentColor"
+                stroke-width="1.5"
+              />
+              <path
+                d="m22.8 11.8-3.2 8.1-8.1 3.2 3.2-8.1 8.1-3.2Z"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linejoin="round"
+              />
+              <circle cx="18" cy="18" r="1.5" fill="currentColor" /></svg
+          ></span>
+          <span class="brand-name">Wander<span>Lux</span></span>
+        </a>
+        <button
+          class="menu-toggle"
+          type="button"
+          aria-expanded="false"
+          aria-controls="primary-nav"
+          aria-label="Open navigation"
+        >
+          <span class="menu-line"></span><span class="menu-line"></span
+          ><span class="menu-line"></span>
+        </button>
+        <nav class="primary-nav" id="primary-nav" aria-label="Main navigation">
+          <a href="index.html">Home</a>
+          <a href="destinations.html">Destinations</a>
+          <a href="calculator.html">Trip calculator</a>
+          <a href="appointment.html" aria-current="page">Appointments</a>
+          <a href="about.html">About</a>
+          <a href="contact.html">Contact</a>
+          <a class="nav-cta" href="appointment.html"
+            >Plan a trip <span aria-hidden="true">↗</span></a
+          >
+        </nav>
+      </div>
+    </header>
+
+    <main id="main">
+      <section class="page-hero">
+        <div class="container page-hero-content">
+          <p class="eyebrow">A conversation, not a commitment</p>
+          <h1>Let’s talk about<br /><em>where you could go.</em></h1>
+          <p>
+            Tell us a little about yourself and the trip you have in mind. A
+            WanderLux consultant will be in touch to arrange a time to chat.
+          </p>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container booking-layout">
+          <div class="form-card reveal">
+            <p class="eyebrow">Appointment request</p>
+            <h2 class="form-title" id="appointment-form-title">
+              Start planning your trip
+            </h2>
+            <p class="form-intro">
+              Fields marked as required help us get back to you with the right
+              information.
+            </p>
+
+            <form
+              class="form-stack"
+              action="https://formsubmit.co/nikhilpatelu6@gmail.com"
+              method="POST"
+              data-email-form
+              aria-labelledby="appointment-form-title"
+            >
+              <input
+                type="hidden"
+                name="_subject"
+                value="New WanderLux appointment request"
+              />
+              <input type="hidden" name="_template" value="table" />
+              <input
+                class="form-honeypot"
+                type="text"
+                name="_honey"
+                tabindex="-1"
+                autocomplete="off"
+                aria-hidden="true"
+              />
+
+              <div class="form-grid">
+                <div class="field">
+                  <label for="appointment-name"
+                    >Name <span aria-hidden="true">*</span></label
+                  >
+                  <input
+                    id="appointment-name"
+                    name="name"
+                    type="text"
+                    autocomplete="name"
+                    minlength="2"
+                    required
+                  />
+                </div>
+                <div class="field">
+                  <label for="appointment-email"
+                    >Email <span aria-hidden="true">*</span></label
+                  >
+                  <input
+                    id="appointment-email"
+                    name="email"
+                    type="email"
+                    autocomplete="email"
+                    required
+                  />
+                </div>
+                <div class="field">
+                  <label for="appointment-phone"
+                    >Phone <span aria-hidden="true">*</span></label
+                  >
+                  <input
+                    id="appointment-phone"
+                    name="phone"
+                    type="tel"
+                    autocomplete="tel"
+                    required
+                  />
+                </div>
+                <div class="field">
+                  <label for="preferred-date"
+                    >Preferred date <span aria-hidden="true">*</span></label
+                  >
+                  <input
+                    id="preferred-date"
+                    name="preferred_date"
+                    type="date"
+                    required
+                  />
+                </div>
+                <div class="field field-span">
+                  <label for="travel-interest"
+                    >What kind of trip are you planning?</label
+                  >
+                  <select id="travel-interest" name="travel_interest">
+                    <option value="">Choose an option (optional)</option>
+                    <option>Holiday package</option>
+                    <option>Guided tour</option>
+                    <option>Flights and accommodation</option>
+                    <option>Honeymoon or special occasion</option>
+                    <option>I'm still exploring</option>
+                  </select>
+                </div>
+                <div class="field field-span">
+                  <label for="appointment-message"
+                    >Message <span aria-hidden="true">*</span></label
+                  >
+                  <textarea
+                    id="appointment-message"
+                    name="message"
+                    rows="5"
+                    minlength="10"
+                    placeholder="Where would you like to go? What would make the trip special?"
+                    required
+                  ></textarea>
+                </div>
+              </div>
+
+              <button class="button button-primary" type="submit">
+                Send appointment request <span aria-hidden="true">↗</span>
+              </button>
+              <p class="form-note">
+                Your information will be used to respond to your enquiry. We aim
+                to reply within one business day.
+              </p>
+            </form>
+          </div>
+
+          <aside class="booking-sidebar reveal">
+            <img
+              src="https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?auto=format&amp;fit=crop&amp;w=1000&amp;q=85"
+              alt="A peaceful mountain lake viewed from the shore"
+              loading="lazy"
+            />
+            <div class="booking-sidebar-copy">
+              <p class="eyebrow eyebrow-light">A good trip starts here</p>
+              <h2>Bring us your ideas. We’ll bring the details.</h2>
+              <ul class="check-list check-list-light">
+                <li>One-to-one planning advice</li>
+                <li>Ideas tailored to your interests</li>
+                <li>No obligation to book</li>
+              </ul>
+              <p>
+                Prefer to call? <a href="tel:+61469852305">+61 469852305</a>
+              </p>
+            </div>
+          </aside>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-main">
+        <div class="footer-brand">
+          <a
+            class="brand brand-footer"
+            href="index.html"
+            aria-label="WanderLux home"
+            ><span class="brand-symbol" aria-hidden="true"
+              ><svg viewBox="0 0 36 36" fill="none">
+                <circle
+                  cx="18"
+                  cy="18"
+                  r="14"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                />
+                <path
+                  d="m22.8 11.8-3.2 8.1-8.1 3.2 3.2-8.1 8.1-3.2Z"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linejoin="round"
+                />
+                <circle
+                  cx="18"
+                  cy="18"
+                  r="1.5"
+                  fill="currentColor"
+                /></svg></span
+            ><span class="brand-name">Wander<span>Lux</span></span></a
+          >
+          <p>Thoughtful travel, made around you.</p>
+        </div>
+        <div class="footer-links">
+          <h2>Explore</h2>
+          <a href="destinations.html">Destinations & services</a
+          ><a href="calculator.html">Trip calculator</a
+          ><a href="about.html">About WanderLux</a>
+        </div>
+        <div class="footer-links">
+          <h2>Let’s talk</h2>
+          <a href="appointment.html">Request an appointment</a
+          ><a href="contact.html">Contact us</a
+          ><a href="mailto:nikhilpatelu6@gmail.com">nikhilpatelu6@gmail.com</a>
+        </div>
+      </div>
+      <div class="container footer-bottom">
+        <p>© <span data-year>2025</span> WanderLux Travel Agency</p>
+        <a href="#top">Back to top <span aria-hidden="true">↑</span></a>
+      </div>
+    </footer>
+  </body>
+</html>
